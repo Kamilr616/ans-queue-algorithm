@@ -1,2 +1,3 @@
-# ans-queue-alhorithm
+# ans-queue-alghorithm
+
 System kolejkowy
