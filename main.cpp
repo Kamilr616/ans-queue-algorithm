@@ -4,8 +4,6 @@
 
 using namespace std;
 
-int multiply(int x, int res[], int res_size);
-
 
 int main()
 {
