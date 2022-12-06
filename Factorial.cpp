@@ -17,7 +17,7 @@ Factorial::Factorial(int _n)
 }
 
 void Factorial::printFactorial(){
-    cout << "Silnia dla n = "<< n << " wynosi: \n";
+    cout << "\n Silnia dla n = "<< n << " wynosi: \n";
     for (int i = this->res_size - 1; i >= 0; i--)
         cout << this->res[i];
 }
