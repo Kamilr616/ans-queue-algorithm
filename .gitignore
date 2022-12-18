@@ -1,0 +1,61 @@
+# Ignore compiled source files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore OS-specific files
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore editor-specific files
+*.swp
+*.un~
+*.~
+*.vscode
+
+# Ignore build and temporary files
+/build/
+/tmp/
+/temp/
+
+# Ignore dependencies
+/node_modules/
+/bower_components/
+/vendor/
+/lib/
+
+# Ignore documentation
+/docs/
+/doc/
+/manual/
+/api/
+
+# Ignore miscellaneous files
+.env
+.env.example
+.htaccess
+.htpasswd
+.editorconfig
+.gitattributes

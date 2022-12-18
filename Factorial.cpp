@@ -1,7 +1,7 @@
 #include "headers/Factorial.hpp"
 
-// This function finds factorial of large numbers
-// and prints them
+// This function finds the factorial of 'n' and stores the result in the 'res' array
+// 'res_size' is updated to the size of the result
 Factorial::Factorial(int _n)
 {
     // Initialize result
@@ -9,29 +9,31 @@ Factorial::Factorial(int _n)
     this->res[0] = 1;
     this->res_size = 1;
 
-    // Apply simple factorial formula n! = 1 * 2 * 3
-    // * 4...*n
+    // Apply simple factorial formula n! = 1 * 2 * 3 * 4...*n
     for (int x = 2; x <= n; x++)
         this->res_size = multiply(x, this->res_size);
-
 }
 
+// This function prints the factorial of 'n' stored in the 'res' array
 void Factorial::printFactorial(){
-    cout << "\n Silnia dla n = "<< n << " wynosi: \n";
+    cout << "\n Factorial of n = "<< n << " is: \n";
     for (int i = this->res_size - 1; i >= 0; i--)
         cout << this->res[i];
 }
 
+// This function prints the factorial of 'n' stored in the 'res' array in exponential notation
 void Factorial::printFactorialExp()
 {
     float exp = 0;
-    cout << "\n Silnia dla n = " << n << " wynosi: \n";
+    cout << "\n Factorial of n = " << n << " is: \n";
     exp += this->res[res_size - 1];
     exp += (this->res[res_size - 2] * 0.1);
     exp += (this->res[res_size - 3] * 0.01);
     cout << exp << " * 10^" << res_size - 1;
 }
-//TODO
+
+// This function returns the factorial of 'n' stored in the 'res' array as an unsigned int
+//TODO >12!
 unsigned int Factorial::getFactorial(){
     unsigned int out = 0;
     for (int i = this->res_size - 1; i >= 0; i--)
@@ -41,13 +43,11 @@ unsigned int Factorial::getFactorial(){
     return out;
 }
 
-// This function multiplies x with the number
-// represented by res[].
-// res_size is size of res[] or number of digits in the
-// number represented by res[]. This function uses simple
-// school mathematics for multiplication.
-// This function returns the
-// new value of res_size
+// This function multiplies x with the number represented by res[]
+// 'Tres_size' is the size of the 'res' array or number of digits in the
+// number represented by 'res[]'
+// This function uses simple school mathematics for multiplication
+// It returns the new value of 'res_size'
 int Factorial::multiply(int x, int Tres_size)
 {
     int carry = 0; // Initialize carry
