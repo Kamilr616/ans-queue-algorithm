@@ -17,7 +17,8 @@ public:
     // member functions
     void printFactorial();
     int multiply(int x, int Tres_size);
-
+    unsigned int getFactorial();
+    void printFactorialExp();
     private :
     // member variables
     int n;

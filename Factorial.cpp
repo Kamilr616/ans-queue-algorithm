@@ -22,6 +22,24 @@ void Factorial::printFactorial(){
         cout << this->res[i];
 }
 
+void Factorial::printFactorialExp()
+{
+    float exp = 0;
+    cout << "\n Silnia dla n = " << n << " wynosi: \n";
+    exp += this->res[res_size - 1];
+    exp += (this->res[res_size - 2] * 0.1);
+    exp += (this->res[res_size - 3] * 0.01);
+    cout << exp << " * 10^" << res_size - 1;
+}
+//TODO
+unsigned int Factorial::getFactorial(){
+    unsigned int out = 0;
+    for (int i = this->res_size - 1; i >= 0; i--)
+    {
+        out += ((this->res[i]) * pow(10, i));
+    }
+    return out;
+}
 
 // This function multiplies x with the number
 // represented by res[].
