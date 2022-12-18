@@ -1,5 +1,4 @@
 #include "headers/global.hpp"
-#include "headers/Factorial.hpp"
 #include "Factorial.cpp"
 
 using namespace std;
