@@ -20,7 +20,7 @@ int main()
     q.Enqueue(1);
     q.Enqueue(2);
     q.Enqueue(3);
-    std::cout << "Front: " << q.Front() << std::endl;
+    std::cout << "\n\nFront: " << q.Front() << std::endl;
     std::cout << "Back: " << q.Back() << std::endl;
     std::cout << "Dequeue: " << q.Dequeue() << std::endl;
     std::cout << "Dequeue: " << q.Dequeue() << std::endl;
