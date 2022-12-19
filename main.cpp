@@ -12,7 +12,7 @@ int main()
     Factorial A(n1);
     A.printFactorial();
     A.printFactorialExp();
-    unsigned int A0;
+    unsigned long long A0;
     A0 = A.getFactorial();
     cout << "\n getFactorial() >> " << A0;
 

@@ -33,9 +33,8 @@ void Factorial::printFactorialExp()
 }
 
 // This function returns the factorial of 'n' stored in the 'res' array as an unsigned int
-//TODO >12!
-unsigned int Factorial::getFactorial(){
-    unsigned int out = 0;
+unsigned long long Factorial::getFactorial(){
+    unsigned long long out = 0;
     for (int i = this->res_size - 1; i >= 0; i--)
     {
         out += ((this->res[i]) * pow(10, i));

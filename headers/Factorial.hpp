@@ -37,7 +37,7 @@ public:
     void printFactorialExp();
 
     // This function returns the factorial of 'n' as an unsigned int
-    unsigned int getFactorial();
+    unsigned long long getFactorial();
 };
 
 #endif // FACTORIAL_HPP
