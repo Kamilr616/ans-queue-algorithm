@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "headers/global.hpp"
 #include "Factorial.cpp"
 #include "Queue1.cpp"
