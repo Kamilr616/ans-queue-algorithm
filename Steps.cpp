@@ -1,13 +1,18 @@
 #include "Steps.hpp"
 
 
-
-Steps::Steps(double _lambda, double _mikro, int _m, int _N)
+Steps::Steps(unsigned double _lambda, unsigned double _mikro, unsigned int _m, unsigned int _N)
 {
     this->lambda = _lambda;
     this->mikro = _mikro;
     this->m = _m;
     this->N = _N;
+    this->p_ = 0;
+    this->pk = 0;
+    this->p_pot_k = 0;
+    this->k = 0;
+    this->k_silnia = 0;
+    this->p0 = 0;
 
     step1();
 
@@ -15,7 +20,16 @@ Steps::Steps(double _lambda, double _mikro, int _m, int _N)
 
 void Steps::step1()
 {
-    int l = this->lambda;
+    //pierwszy wzór
+    this->p_ = (this->lambda/this->mikro);
+
+    //drugi wzór
+    //k silnia 
+    Factorial k_silnia_new(k);
+    this->k_silnia = (unsigned int)k_silnia_new.getFactorial();
+
+    this->p_pot_k = pow(this->p_ , this->k);
+    this->pk = (this->p_pot_k/this->k_silnia) * this->p0;
 
 }
 
@@ -29,8 +43,7 @@ string Steps::printRo()
 
 string Steps::printP0()
 {
-    string result = "2";
-
+    string result = to_string(this->p0);
     return result;
 }
 

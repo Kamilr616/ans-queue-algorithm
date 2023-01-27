@@ -2,6 +2,7 @@
 #define STEPS_HPP
 
 #include "global.hpp"
+#include "Factorial.hpp"
 
 using namespace std;
 
@@ -11,17 +12,22 @@ class Steps
 {
 private:
 
-    double lambda;
-    double mikro;
-    int m;
-    int N;
-    int test;
+    unsigned double lambda;
+    unsigned double mikro;
+    unsigned int m;
+    unsigned int N;
+    unsigned int p_;
+    unsigned int pk;
+    unsigned int p_pot_k;
+    unsigned int k;
+    unsigned int k_silnia;
+    unsigned int p0;    
 
     void step1();
 
 public:
 
-    Steps(double _lambda, double _mikro, int _m, int _N);
+    Steps(unsigned double _lambda, unsigned double _mikro, unsigned int _m, unsigned int _N);
     ~Steps();
 
     string printRo();
