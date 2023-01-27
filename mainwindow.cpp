@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "Steps.hpp"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,7 +21,7 @@ void MainWindow::on_calc_clicked()
     m = ui->inputM->value();
     N = ui->inputN->value();
 
-    test = lambda + mikro;
+    Steps Analize(lambda, mikro, m , N);
 
-    ui->output_1->setText(QString::number(test));
+    ui->output_1->setText(QString::number(5));
 }
