@@ -2,7 +2,7 @@
 
 
 
-Steps::Steps(double _lambda; double _mikro; int _m; int _N;)
+Steps::Steps(double _lambda, double _mikro, int _m, int _N,)
 {
     this.lambda = _lambda;
     this.mikro = _mikro;
@@ -13,8 +13,13 @@ Steps::Steps(double _lambda; double _mikro; int _m; int _N;)
 
 }
 
-Steps::void step1()
+void Steps::step1()
 {
     int l = this.lambda;
 
+}
+
+Steps::~Steps(){
+
+    
 }

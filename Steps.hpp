@@ -20,7 +20,7 @@ private:
     void step1();
 
 public:
-    Steps(double _lambda; double _mikro; int _m; int _N;);
+    Steps(double _lambda, double _mikro, int _m, int _N);
 
     ~Steps();
 
