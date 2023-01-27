@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="">
+   <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -35,12 +35,12 @@
        <item row="0" column="1">
         <widget class="QLabel" name="label_1">
          <property name="text">
-          <string>Intensywność strumienia zgłoszeń []</string>
+          <string>Intensywność strumienia zgłoszeń [λ]</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
-        <widget class="QSpinBox" name="spinBox_4">
+        <widget class="QSpinBox" name="inputN">
          <property name="frame">
           <bool>true</bool>
          </property>
@@ -60,7 +60,7 @@
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+        <widget class="QDoubleSpinBox" name="inputMikro">
          <property name="frame">
           <bool>true</bool>
          </property>
@@ -73,7 +73,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QSpinBox" name="spinBox_3">
+        <widget class="QSpinBox" name="inputM">
          <property name="frame">
           <bool>true</bool>
          </property>
@@ -86,7 +86,7 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_1">
+        <widget class="QDoubleSpinBox" name="inputLambda">
          <property name="frame">
           <bool>true</bool>
          </property>
@@ -115,7 +115,7 @@
        <item row="1" column="1">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Średnia intensywność obsługi []</string>
+          <string>Średnia intensywność obsługi [μ]</string>
          </property>
         </widget>
        </item>
@@ -172,7 +172,7 @@ color: rgb(0, 0, 0);</string>
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QFrame" name="">
+      <widget class="QFrame" name="frame">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
          <widget class="QLabel" name="outputLabel_1">

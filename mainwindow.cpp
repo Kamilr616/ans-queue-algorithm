@@ -13,3 +13,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_calc_clicked()
+{
+    lambda = ui->inputLambda->value();
+    mikro = ui->inputMikro->value();
+    m = ui->inputM->value();
+    N = ui->inputN->value();
+
+    test = lambda + mikro;
+
+    ui->output_1->setText(QString::number(test));
+}
