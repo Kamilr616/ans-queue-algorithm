@@ -193,7 +193,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[ro]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[r&lt;span style=&quot; vertical-align:sub;&quot;&gt;o&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -265,7 +265,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[p0]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[p&lt;span style=&quot; vertical-align:sub;&quot;&gt;0&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -331,7 +331,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[p1]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[p&lt;span style=&quot; vertical-align:sub;&quot;&gt;1&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -397,7 +397,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[p0dm]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[p&lt;span style=&quot; vertical-align:sub;&quot;&gt;0 &lt;/span&gt;dm]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -463,7 +463,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[m0_śr]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[m&lt;span style=&quot; vertical-align:sub;&quot;&gt;0 &lt;/span&gt;śr]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -529,7 +529,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[mzn_śr]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[m&lt;span style=&quot; vertical-align:sub;&quot;&gt;zn &lt;/span&gt;śr]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -595,7 +595,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[v_śr]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[v śr]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -661,7 +661,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[n_śr]</string>
+           <string>[n śr]</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -727,7 +727,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[tf]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[t&lt;span style=&quot; vertical-align:sub;&quot;&gt;f&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -793,7 +793,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>[ts]</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[t&lt;span style=&quot; vertical-align:sub;&quot;&gt;s&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
