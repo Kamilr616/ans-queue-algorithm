@@ -1,7 +1,8 @@
-#include "headers/global.hpp"
+#include "global.hpp"
 #include "Factorial.cpp"
-#include "Queue1.cpp"
+#include "Steps.cpp"
 #include "mainwindow.h"
+
 #include <QApplication>
 
 using namespace std;

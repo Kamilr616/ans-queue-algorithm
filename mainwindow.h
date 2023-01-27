@@ -15,7 +15,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
+    double lambda;
+    double mikro;
+    int m;
+    int N;
+
+    int test;
+
+private slots:
+    void on_calc_clicked();
 };
 #endif // MAINWINDOW_H
