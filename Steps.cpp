@@ -23,7 +23,7 @@ void Steps::step1()
     Factorial m_silnia_new(m);
     this->m_silnia = (unsigned int)m_silnia_new.getFactorial();
 
-    this->p_pot_k = pow(this->ro , this->m);
+    //this->p_pot_m = pow(this->ro , this->m);
 
 }
 
