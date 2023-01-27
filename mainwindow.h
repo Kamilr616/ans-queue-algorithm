@@ -20,8 +20,6 @@ public:
     int m;
     int N;
 
-    int test;
-
 private slots:
     void on_calc_clicked();
 

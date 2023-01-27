@@ -20,72 +20,72 @@ void Steps::step1()
 }
 
 
-String Steps::printRo()
+string Steps::printRo()
 {
-    String result = "1";
+    string result = "1";
 
     return result;
 }
 
-String Steps::printP0()
+string Steps::printP0()
 {
-    String result = "2";
+    string result = "2";
 
     return result;
 }
 
-String Steps::printP1()
+string Steps::printP1()
 {
-    String result = "3";
+    string result = "3";
 
     return result;
 }
 
-String Steps::printP0dm()
+string Steps::printP0dm()
 {
-    String result = "4";
+    string result = "4";
 
     return result;
 }
 
-String Steps::printM0sr()
+string Steps::printM0sr()
 {
-    String result = "5";
+    string result = "5";
 
     return result;
 }
 
-String Steps::printMznsr()
+string Steps::printMznsr()
 {
-    String result = "6";
+    string result = "6";
 
     return result;
 }
 
-String Steps::printVsr()
+string Steps::printVsr()
 {
-    String result = "7";
+    string result = "7";
 
     return result;
 }
 
-String Steps::printNsr()
+string Steps::printNsr()
 {
-    String result = "8";
+    string result = "8";
 
     return result;
 }
 
-String Steps::printTf()
+string Steps::printTf()
 {
-    String result = "9";
+    string result = "9";
 
     return result;
 }
 
-String Steps::printTs()
+string Steps::printTs()
 {
-    String result = "10";
+    string result = "10";
 
     return result;
 }
