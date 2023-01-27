@@ -14,7 +14,7 @@ private:
     // 'res' is an array to store the result
     // 'res_size' is the size of the 'res' array
     int n;
-    int res[MAX];
+    int res[MAX_F];
     int res_size;
 
     // This function multiplies x with the number represented by res[]

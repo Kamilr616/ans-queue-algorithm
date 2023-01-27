@@ -7,37 +7,30 @@ Steps::Steps(unsigned double _lambda, unsigned double _mikro, unsigned int _m, u
     this->mikro = _mikro;
     this->m = _m;
     this->N = _N;
-    this->p_ = 0;
-    this->pk = 0;
-    this->p_pot_k = 0;
-    this->k = 0;
-    this->k_silnia = 0;
-    this->p0 = 0;
+    this->ro = (_lambda / _mikro);
 
-    step1();
+    this->p0 = 0;
+    this->p1 = 0;
+
+    //step1();
 
 }
 
 void Steps::step1()
 {
-    //pierwszy wzór
-    this->p_ = (this->lambda/this->mikro);
+    //drugi wzór?
+    //m silnia 
+    Factorial m_silnia_new(m);
+    this->m_silnia = (unsigned int)m_silnia_new.getFactorial();
 
-    //drugi wzór
-    //k silnia 
-    Factorial k_silnia_new(k);
-    this->k_silnia = (unsigned int)k_silnia_new.getFactorial();
-
-    this->p_pot_k = pow(this->p_ , this->k);
-    this->pk = (this->p_pot_k/this->k_silnia) * this->p0;
+    this->p_pot_k = pow(this->ro , this->m);
 
 }
 
 
 string Steps::printRo()
 {
-    string result = "1";
-
+    string result = to_string(this->ro);   
     return result;
 }
 
@@ -49,8 +42,7 @@ string Steps::printP0()
 
 string Steps::printP1()
 {
-    string result = "3";
-
+    string result = to_string(this->p1);
     return result;
 }
 
@@ -104,7 +96,8 @@ string Steps::printTs()
 }
 
 
-Steps::~Steps(){
+Steps::~Steps()
+{
 
 
 }

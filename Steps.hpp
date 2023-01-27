@@ -16,12 +16,12 @@ private:
     unsigned double mikro;
     unsigned int m;
     unsigned int N;
-    unsigned int p_;
-    unsigned int pk;
-    unsigned int p_pot_k;
-    unsigned int k;
-    unsigned int k_silnia;
-    unsigned int p0;    
+    unsigned int ro;
+
+    unsigned double p0;    
+    unsigned double p1;    
+
+    unsigned int m_silnia;
 
     void step1();
 
