@@ -17,6 +17,8 @@ public:
 
     int test;
 
+    int test312321;
+
 private:
     Ui::MainWindow *ui;
 };
