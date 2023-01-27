@@ -1,6 +1,3 @@
-#include "global.hpp"
-#include "Factorial.cpp"
-#include "Steps.cpp"
 #include "mainwindow.h"
 
 #include <QApplication>
