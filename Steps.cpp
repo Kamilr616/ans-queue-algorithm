@@ -1,7 +1,7 @@
 #include "Steps.hpp"
 
 
-Steps::Steps(unsigned double _lambda, unsigned double _mikro, unsigned int _m, unsigned int _N)
+Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
 {
     this->lambda = _lambda;
     this->mikro = _mikro;

@@ -7,19 +7,18 @@
 using namespace std;
 
 
-
 class Steps
 {
 private:
 
-    unsigned double lambda;
-    unsigned double mikro;
+    double lambda;
+    double mikro;
     unsigned int m;
     unsigned int N;
-    unsigned int ro;
 
-    unsigned double p0;    
-    unsigned double p1;    
+    double ro;
+    double p0;    
+    double p1;    
 
     unsigned int m_silnia;
 
@@ -27,7 +26,7 @@ private:
 
 public:
 
-    Steps(unsigned double _lambda, unsigned double _mikro, unsigned int _m, unsigned int _N);
+    Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N);
     ~Steps();
 
     string printRo();
