@@ -9,7 +9,7 @@ Steps::Steps(double _lambda, double _mikro, int _m, int _N)
     this->m = _m;
     this->N = _N;
 
-    Steps.step1();
+    step1();
 
 }
 
