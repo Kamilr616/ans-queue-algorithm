@@ -1,6 +1,5 @@
-#include "headers/global.hpp"
+#include "global.hpp"
 #include "Factorial.cpp"
-#include "Queue1.cpp"
 #include "mainwindow.h"
 #include <QApplication>
 

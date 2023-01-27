@@ -1,4 +1,4 @@
-#include "headers/Factorial.hpp"
+#include "Factorial.hpp"
 
 // This function finds the factorial of 'n' and stores the result in the 'res' array
 // 'res_size' is updated to the size of the result
