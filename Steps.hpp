@@ -1,6 +1,7 @@
 #ifndef STEPS_HPP
 #define STEPS_HPP
 
+#include <cmath>
 #include "global.hpp"
 #include "Factorial.hpp"
 
@@ -16,18 +17,28 @@ private:
     unsigned int m;
     unsigned int N;
 
-    double ro;
-    double p0;    
-    double p1;    
+    double ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts;
 
-    unsigned int m_silnia;
+    size_t mFactorialValue;
 
-    void step1();
+    void calculateP0();
+    double probabilityAtIndex(int index);
 
 public:
 
     Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N);
     ~Steps();
+
+    double getRo();
+    double getP0();
+    double getP1();
+    double getPOdm();
+    double getM0Mean();
+    double getMZnMean();
+    double getVMean();
+    double getNMean();
+    double getTf();
+    double getTs();
 
     string printRo();
     string printP0();
