@@ -50,6 +50,9 @@
          <property name="accelerated">
           <bool>false</bool>
          </property>
+         <property name="maximum">
+          <number>9999999</number>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
@@ -70,6 +73,9 @@
          <property name="accelerated">
           <bool>false</bool>
          </property>
+         <property name="maximum">
+          <double>9999999.990000000223517</double>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
@@ -83,6 +89,9 @@
          <property name="accelerated">
           <bool>false</bool>
          </property>
+         <property name="maximum">
+          <number>71</number>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
@@ -95,6 +104,12 @@
          </property>
          <property name="accelerated">
           <bool>false</bool>
+         </property>
+         <property name="decimals">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <double>9999999.990000000223517</double>
          </property>
         </widget>
        </item>
@@ -249,7 +264,7 @@ color: rgb(0, 0, 0);</string>
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Prawdopodobieństwo</string>
+           <string>Prawdopodobieństwo pustego systemu</string>
           </property>
          </widget>
         </item>
@@ -315,7 +330,7 @@ color: rgb(0, 0, 0);</string>
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Prawdopodobieństwo</string>
+           <string>Prawdopodobieństwo zgłoszenia</string>
           </property>
          </widget>
         </item>
@@ -381,7 +396,7 @@ color: rgb(0, 0, 0);</string>
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Prawdopodobieństwo</string>
+           <string>Prawdopodobieństwo odmowy</string>
           </property>
          </widget>
         </item>
@@ -397,7 +412,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[p&lt;span style=&quot; vertical-align:sub;&quot;&gt;0 &lt;/span&gt;dm]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[pOdm]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

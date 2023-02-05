@@ -137,6 +137,14 @@ double Steps::getTs()
     return ts;
 }
 
+
+/*
+    Input:
+     Range [from, to] to calculate probabilites.
+    
+    Out:
+     String of listed probabilities separeted by comma.
+*/
 string Steps::probabilitesAtRange(const unsigned int from, const unsigned int to)
 {
     string result = "";
