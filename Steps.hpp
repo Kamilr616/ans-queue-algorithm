@@ -22,6 +22,7 @@ private:
     size_t mFactorialValue;
 
     void calculateP0();
+    void calculateVMean();
     double probabilityAtIndex(int index);
 
 public:
