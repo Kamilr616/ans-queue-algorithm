@@ -19,9 +19,9 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N) : 
     this->ro = (_lambda / _mikro);
 
     Factorial mFactorial(m);
-    this->mFactorialValue = mFactorial.getFactorial();
+    mFactorialValue = mFactorial.getFactorial();
 
-    // 1. Warunek normalizujący.
+    // 1. Warunek normalizujący trzeba sprawdzać?
 
     calculateP0();
 
@@ -42,14 +42,6 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N) : 
 */
 void Steps::calculateP0()
 {
-    //drugi wzór?
-    //m silnia 
-    /*Factorial m_silnia_new(m);
-    this->m_silnia = (unsigned int)m_silnia_new.getFactorial();*/
-
-    //this->p_pot_m = pow(this->ro , this->m);
-
-    // ---
     double sum = 0, roDivM = ro / m;
     if (roDivM == 1) {
         for (int k = 0; k <= m - 1; k++) {
@@ -66,7 +58,8 @@ void Steps::calculateP0()
 }
 
 /*
-    Calculates v_mean wheter 'ro == m' or 'ro != m'.
+    It's a function of p0 so it must be calculated earlier!
+    Calculates v_mean whether 'ro == m' or 'ro != m'.
 */
 void Steps::calculateVMean() {
     if (ro == m) {
@@ -80,7 +73,7 @@ void Steps::calculateVMean() {
 
 /*
     Input
-     index at which to calculate probability.
+     index at which to calculate probability. It's a function of p0 so it must be calculated earlier!
 
     Returns
      double value of probability.

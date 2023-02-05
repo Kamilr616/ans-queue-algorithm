@@ -11,15 +11,11 @@ using namespace std;
 class Steps
 {
 private:
-
-    double lambda;
-    double mikro;
-    unsigned int m;
-    unsigned int N;
-
-    double ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts;
+    unsigned int m, N;
 
     size_t mFactorialValue;
+
+    double lambda, mikro, ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts;
 
     void calculateP0();
     void calculateVMean();
