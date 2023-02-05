@@ -87,7 +87,7 @@ double Steps::probabilityAtIndex(int index)
         return (pow(ro, index) / (pow(m, index - m) * mFactorialValue)) * p0;
     }
     else {
-        throw invalid_argument("Given index is out of range.");
+        throw invalid_argument("Given index: " + to_string(index) + " is out of range.");
     }
 }
 
@@ -135,6 +135,21 @@ double Steps::getTf()
 double Steps::getTs()
 {
     return ts;
+}
+
+string Steps::probabilitesAtRange(const unsigned int from, const unsigned int to)
+{
+    string result = "";
+    for (unsigned int i = from; i <= to; i++) {
+        try {
+            result += to_string(i) + ": " + to_string(probabilityAtIndex(i)) + ", ";
+        }
+        catch (const invalid_argument &ex) {
+            return ex.what();
+        }
+    }
+    result[result.length() - 2] = ' '; // clear last comma
+    return result;
 }
 
 string Steps::printRo()

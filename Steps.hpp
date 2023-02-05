@@ -37,6 +37,8 @@ public:
     double getTf();
     double getTs();
 
+    string probabilitesAtRange(const unsigned int from, const unsigned int to);
+
     string printRo();
     string printP0();
     string printP1();
