@@ -137,6 +137,8 @@ double Steps::getTs()
     return ts;
 }
 
+
+
 string Steps::printRo()
 {
     string result = to_string(this->ro);   
