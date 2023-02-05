@@ -20,12 +20,14 @@ void MainWindow::on_calc_clicked()
     mikro = ui->inputMikro->value();
     m = ui->inputM->value();
     N = ui->inputN->value();
+    from = ui->inputFrom->value();
+    to = ui->inputTo->value();
 
     Steps Analize(lambda, mikro, m , N);
 
     ui->output_1->setText(QString::fromStdString(Analize.printRo()));
     ui->output_2->setText(QString::fromStdString(Analize.printP0()));
-    ui->output_3->setText(QString::fromStdString(Analize.printP1()));
+    ui->output_3->setText(QString::fromStdString(Analize.probabilitesAtRange(from, to)));
     ui->output_4->setText(QString::fromStdString(Analize.printP0dm()));
     ui->output_5->setText(QString::fromStdString(Analize.printM0sr()));
     ui->output_6->setText(QString::fromStdString(Analize.printMznsr()));

@@ -19,6 +19,8 @@ public:
     double mikro;
     int m;
     int N;
+    int from;
+    int to;
 
 private slots:
     void on_calc_clicked();
