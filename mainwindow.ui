@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>579</width>
-    <height>704</height>
+    <height>695</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>561</width>
-      <height>651</height>
+      <height>641</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -314,7 +314,7 @@ color: rgb(0, 0, 0);</string>
            <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[r&lt;span style=&quot; vertical-align:sub;&quot;&gt;o&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[&lt;span style=&quot; font-family:'sans-serif';&quot;&gt;ρ&lt;/span&gt;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -338,7 +338,7 @@ color: rgb(0, 0, 0);</string>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>30</height>
+            <height>75</height>
            </size>
           </property>
           <property name="frameShape">
