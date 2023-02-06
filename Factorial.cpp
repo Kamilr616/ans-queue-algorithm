@@ -67,7 +67,7 @@ void Factorial::getExponentialForm(double& x, int& y)
     int y_result = (res_size - 1);
 
     double j = 1;
-    for (int i = 1; i <= 15; i++, j /= 10) {
+    for (int i = 1; i <= 6; i++, j /= 10) {
         x_result += res[res_size - i] * j;
     }
 

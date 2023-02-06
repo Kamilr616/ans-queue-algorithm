@@ -1,15 +1,15 @@
 #include "ExponentialNotation.hpp"
 
-ExponentialNotation::ExponentialNotation(double realNumber) : exp(0), a(realNumber)
+ExponentialNotation::ExponentialNotation(double realNumber) : a(realNumber), exp(0)
 {
     if (a <= -1 || 1 <= a) {
-        while (10.0 <= abs(a)) {
+        while (10.0 <= std::abs(a)) {
             a /= 10.0;
             exp++;
         }
     }
     else {
-        while (abs(a) < 1) {
+        while (std::abs(a) < 1) {
             a *= 10.0;
             exp--;
         }
@@ -34,6 +34,6 @@ ExponentialNotation ExponentialNotation::operator*(ExponentialNotation val)
 
 ExponentialNotation::operator double() const
 {
-    return a * pow(10, exp);
+    return a * std::pow(10, exp);
 }
 

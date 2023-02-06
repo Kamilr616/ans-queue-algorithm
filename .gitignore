@@ -60,3 +60,4 @@ Thumbs.db
 .editorconfig
 .gitattributes
 *.user
+*.user.*

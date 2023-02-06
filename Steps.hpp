@@ -14,7 +14,7 @@ class Steps
 {
 private:
 
-    Factorial mFactorial;
+    unsigned long long mFactorialValue;
 
     double lambda, mikro, ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts, m, N;
 
