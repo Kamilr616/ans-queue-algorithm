@@ -14,6 +14,8 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
 {
     this->lambda = _lambda;
     this->mikro = _mikro;
+    
+    //TODO rzutowanie m i N na double
     this->m = _m;
     this->N = _N;
     this->ro = (_lambda / _mikro);
@@ -79,7 +81,6 @@ void Steps::calculateP0()
     Calculates v_mean whether 'ro == m' or 'ro != m'.
 */
 void Steps::calculateVMean() {
-    //TODO rzutowanie m na double
     if (this->ro == this->m) {
         this->vMean = (pow(this->m, this->m) / this->mFactorialValue) * (this->N * (this->N + 1.0) * this->p0 / 2);
     }

@@ -21,24 +21,12 @@ void Factorial::printFactorial(){
         cout << this->res[i];
 }
 
-// This function prints the factorial of 'n' stored in the 'res' array in exponential notation
-void Factorial::printFactorialExp()
-{
-    float exp = 0;
-    cout << "\n Factorial of n = " << n << " is: \n";
-    exp += this->res[res_size - 1];
-    exp += (this->res[res_size - 2] * 0.1);
-    exp += (this->res[res_size - 3] * 0.01);
-    cout << exp << " * 10^" << res_size - 1;
-}
-
 // This function returns the factorial of 'n' stored in the 'res' array as an unsigned int
 unsigned long long Factorial::getFactorial(){
     unsigned long long out = 0;
     for (int i = this->res_size - 1; i >= 0; i--)
-    {
         out += ((this->res[i]) * pow(10, i));
-    }
+        
     return out;
 }
 
@@ -79,13 +67,9 @@ void Factorial::getExponentialForm(double &x, int &y)
     for (int i = this->res_size - 1; i >= 0; i--)
     {
         if (this->res[i] == 0)
-        {
             trailing_zeros += 1;
-        }
         else
-        {
             break;
-        }
     }
 
     double result = 0.0;
