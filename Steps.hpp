@@ -4,15 +4,17 @@
 #include <cmath>
 #include "global.hpp"
 #include "Factorial.hpp"
+#include "ExponentialNotation.hpp"
 
 using namespace std;
 
+typedef ExponentialNotation ExpNot;
 
 class Steps
 {
 private:
 
-    unsigned long long mFactorialValue;
+    Factorial mFactorial;
 
     double lambda, mikro, ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts, m, N;
 

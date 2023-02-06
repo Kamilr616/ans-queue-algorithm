@@ -61,24 +61,27 @@ int Factorial::multiply(int x, int Tres_size)
     return Tres_size;
 }
 
-void Factorial::getExponentialForm(double &x, int &y)
+void Factorial::getExponentialForm(double& x, int& y)
 {
-    int trailing_zeros = 0;
-    for (int i = this->res_size - 1; i >= 0; i--)
-    {
-        if (this->res[i] == 0)
-            trailing_zeros += 1;
-        else
-            break;
+    double x_result = 0;
+    int y_result = (res_size - 1);
+
+    double j = 1;
+    for (int i = 1; i <= 15; i++, j /= 10) {
+        x_result += res[res_size - i] * j;
     }
 
-    double result = 0.0;
-    int magnitude = 1;
-    for (int i = 0; i < this->res_size - trailing_zeros; i++)
-        result = (result + this->res[i] * pow(10, i));
+    x = x_result;
+    y = y_result;
+}
 
-    x = result;
-    y = trailing_zeros;
+ExponentialNotation Factorial::getExponentialForm()
+{
+    double x;
+    int y;
+    getExponentialForm(x, y);
+
+    return ExponentialNotation(x, y);
 }
 
 Factorial::~Factorial(){

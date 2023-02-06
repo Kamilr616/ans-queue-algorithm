@@ -2,6 +2,7 @@
 #define FACTORIAL_HPP
 
 #include "global.hpp"
+#include "ExponentialNotation.hpp"
 
 using namespace std;
 
@@ -34,7 +35,10 @@ public:
     void printFactorial();
 
     // This function returns the factorial of 'n' in exponential notation
-    void getExponentialForm(double &x, int &y);
+
+    void getExponentialForm(double& x, int& y);
+
+    ExponentialNotation getExponentialForm();
     
     // This function returns the factorial of 'n' as an unsigned int
     unsigned long long getFactorial();

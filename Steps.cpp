@@ -1,5 +1,6 @@
 #include "Steps.hpp"
 
+
 /*
     Input:
         lambda - intensywność strumienia zgłoszeń,
@@ -10,7 +11,7 @@
     Calculates:
         Values describing queue system of type M/M/m/FIFO/m+N
 */
-Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
+Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N): mFactorial(_m)
 {
     this->lambda = _lambda;
     this->mikro = _mikro;
@@ -34,9 +35,6 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
 
 void Steps::calculateAll()
 {
-    Factorial mFactorial(m);
-    mFactorialValue = mFactorial.getFactorial();
-
     // 1. Warunek normalizujący trzeba sprawdzać?
 
     calculateP0();
@@ -63,15 +61,15 @@ void Steps::calculateP0()
 
     if (roDivM == 1) {
         for (int k = 0; k <= this->m - 1; k++) {
-            sum += pow(this->ro, k) / Factorial(k).getFactorial();
+            sum += ExpNot(pow(this->ro, k)) / Factorial(k).getExponentialForm();
         }
-        this->p0 = 1 / (sum + (pow(this->ro, this->m) / this->mFactorialValue) * (this->N + 1.0));
+        this->p0 = 1 / (sum + static_cast<double>(ExpNot(pow(this->ro, this->m)) / this->mFactorial.getExponentialForm()) * (this->N + 1.0));
     }
     else {
         for (int k = 0; k <= this->m - 1; k++) {
-            sum += pow(this->ro, k) / Factorial(k).getFactorial();
+            sum += ExpNot(pow(this->ro, k)) / Factorial(k).getExponentialForm();
         }
-        this->p0 = 1 / (sum + (pow(this->ro, this->m) / this->mFactorialValue) * ((1 - (pow(roDivM, this->N + 1.0))) / (1 - roDivM)));
+        this->p0 = 1 / (sum + static_cast<double>(ExpNot(pow(this->ro, this->m)) / this->mFactorial.getExponentialForm()) * ((1 - (pow(roDivM, this->N + 1.0))) / (1 - roDivM)));
     }
 }
 
@@ -81,10 +79,10 @@ void Steps::calculateP0()
 */
 void Steps::calculateVMean() {
     if (this->ro == this->m) {
-        this->vMean = (pow(this->m, this->m) / this->mFactorialValue) * (this->N * (this->N + 1.0) * this->p0 / 2);
+        this->vMean = static_cast<double>(ExpNot(pow(this->m, this->m)) / this->mFactorial.getExponentialForm()) * (this->N * (this->N + 1.0) * this->p0 / 2);
     }
     else {
-        this->vMean = (pow(this->ro, this->m + 1) * this->p0 / Factorial(this->m - 1).getFactorial()) 
+        this->vMean = static_cast<double>(ExpNot(pow(this->ro, this->m + 1)) / Factorial(this->m - 1).getExponentialForm()) * this->p0
             * (1 -pow(this->ro/this->m, this->N) * (N * (1 - this->ro / this->m) + 1)) / pow(this->m - this->ro, 2);
     }
 }
@@ -99,10 +97,10 @@ void Steps::calculateVMean() {
 double Steps::probabilityAtIndex(int index)
 {
     if (1 <= index && index <= this->m - 1) { // dla k
-        return (pow(this->ro, index) / Factorial(index).getFactorial()) * this->p0;
+        return static_cast<double>(ExpNot(pow(this->ro, index)) / Factorial(index).getExponentialForm()) * this->p0;
     }
     else if (this->m <= index && index <= (this->m + this->N)) { // dla j
-        return (pow(this->ro, index) / (pow(this->m, index - this->m) * this->mFactorialValue)) * this->p0;
+        return static_cast<double>(ExpNot(pow(this->ro, index)) / (ExpNot(pow(this->m, index - this->m)) * this->mFactorial.getExponentialForm())) * this->p0;
     }
     else {
         throw invalid_argument("Given index: " + to_string(index) + " is out of range.");
