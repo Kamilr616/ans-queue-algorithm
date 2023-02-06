@@ -10,7 +10,7 @@
     Calculates:
         Values describing queue system of type M/M/m/FIFO/m+N
 */
-Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N) : p0(0)
+Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
 {
     this->lambda = _lambda;
     this->mikro = _mikro;
@@ -18,6 +18,21 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N) : 
     this->N = _N;
     this->ro = (_lambda / _mikro);
 
+    this->p0 = 0;
+    this->p1 = 0; 
+    this->pOdm = 0;
+    this->m0Mean = 0;
+    this->mZnMean = 0;
+    this->vMean = 0;
+    this->nMean = 0;
+    this->tf = 0;
+    this->ts = 0;
+
+    calculateAll();
+}
+
+void Steps::calculateAll()
+{
     Factorial mFactorial(m);
     mFactorialValue = mFactorial.getFactorial();
 
@@ -25,16 +40,16 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N) : 
 
     calculateP0();
 
-    double probAt_MN = probabilityAtIndex(m + N);
+    this->pOdm = probabilityAtIndex(this->m + this->N);
 
-    p1 = probabilityAtIndex(1);
-    pOdm = probAt_MN;
-    m0Mean = ro * (1 - probAt_MN);
-    mZnMean = m - m0Mean;
+    this->p1 = probabilityAtIndex(1);
+    this->m0Mean = (this->ro * (1 - this->pOdm));
+    this->mZnMean = (this->m - this->m0Mean);
+
     calculateVMean();
-    nMean = vMean + m0Mean;
-    tf = vMean / lambda;
-    ts = tf + (ro / mikro) * (1 - probAt_MN);
+    this->nMean = (this->vMean + this->m0Mean);
+    this->tf = (this->vMean / this->lambda);
+    this->ts = (this->tf + (this->ro / this->mikro) * (1 - this->pOdm));
 }
 
 /*
@@ -42,18 +57,20 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N) : 
 */
 void Steps::calculateP0()
 {
-    double sum = 0, roDivM = ro / m;
+    double sum = 0;
+    double roDivM = (this->ro / this->m);
+
     if (roDivM == 1) {
-        for (int k = 0; k <= m - 1; k++) {
-            sum += pow(ro, k) / Factorial(k).getFactorial();
+        for (int k = 0; k <= this->m - 1; k++) {
+            sum += pow(this->ro, k) / Factorial(k).getFactorial();
         }
-        p0 = 1 / (sum + (pow(ro, m) / mFactorialValue) * (N+1.0));
+        this->p0 = 1 / (sum + (pow(this->ro, this->m) / this->mFactorialValue) * (this->N + 1.0));
     }
     else {
-        for (int k = 0; k <= m - 1; k++) {
-            sum += pow(ro, k) / Factorial(k).getFactorial();
+        for (int k = 0; k <= this->m - 1; k++) {
+            sum += pow(this->ro, k) / Factorial(k).getFactorial();
         }
-        p0 = 1 / (sum + (pow(ro, m) / mFactorialValue) * ((1 - (pow(roDivM, N + 1.0))) / (1 - roDivM)));
+        this->p0 = 1 / (sum + (pow(this->ro, this->m) / this->mFactorialValue) * ((1 - (pow(roDivM, this->N + 1.0))) / (1 - roDivM)));
     }
 }
 
@@ -62,12 +79,13 @@ void Steps::calculateP0()
     Calculates v_mean whether 'ro == m' or 'ro != m'.
 */
 void Steps::calculateVMean() {
-    if (ro == m) {
-        vMean = (pow(m, m) / mFactorialValue) * (N * (N + 1.0) * p0 / 2);
+    //TODO rzutowanie m na double
+    if (this->ro == this->m) {
+        this->vMean = (pow(this->m, this->m) / this->mFactorialValue) * (this->N * (this->N + 1.0) * this->p0 / 2);
     }
     else {
-        vMean = (pow(ro, m + 1) * p0 / Factorial(m - 1).getFactorial()) 
-            * (1 -pow(ro/m, N) * (N * (1 - ro / m) + 1)) / pow(m - ro, 2);
+        this->vMean = (pow(this->ro, this->m + 1) * this->p0 / Factorial(this->m - 1).getFactorial()) 
+            * (1 -pow(this->ro/this->m, this->N) * (N * (1 - this->ro / this->m) + 1)) / pow(this->m - this->ro, 2);
     }
 }
 
@@ -80,11 +98,11 @@ void Steps::calculateVMean() {
 */
 double Steps::probabilityAtIndex(int index)
 {
-    if (1 <= index && index <= m - 1) { // dla k
-        return (pow(ro, index) / Factorial(index).getFactorial()) * p0;
+    if (1 <= index && index <= this->m - 1) { // dla k
+        return (pow(this->ro, index) / Factorial(index).getFactorial()) * this->p0;
     }
-    else if (m <= index && index <= m + N) { // dla j
-        return (pow(ro, index) / (pow(m, index - m) * mFactorialValue)) * p0;
+    else if (this->m <= index && index <= (this->m + this->N)) { // dla j
+        return (pow(this->ro, index) / (pow(this->m, index - this->m) * this->mFactorialValue)) * this->p0;
     }
     else {
         throw invalid_argument("Given index: " + to_string(index) + " is out of range.");
@@ -137,7 +155,6 @@ double Steps::getTs()
     return ts;
 }
 
-
 /*
     Input:
      Range [from, to] to calculate probabilites.
@@ -161,21 +178,18 @@ string Steps::probabilitesAtRange(const unsigned int from, const unsigned int to
 }
 
 string Steps::printRo()
-{
-    string result = to_string(this->ro);   
-    return result;
+{ 
+    return to_string(this->ro);
 }
 
 string Steps::printP0()
 {
-    string result = to_string(this->p0);
-    return result;
+    return to_string(this->p0);
 }
 
 string Steps::printP1()
 {
-    string result = to_string(this->p1);
-    return result;
+    return to_string(this->p1);
 }
 
 string Steps::printP0dm()

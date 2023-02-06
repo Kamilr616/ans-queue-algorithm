@@ -17,6 +17,7 @@ private:
 
     double lambda, mikro, ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts;
 
+    void calculateAll();
     void calculateP0();
     void calculateVMean();
     double probabilityAtIndex(int index);

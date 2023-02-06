@@ -35,7 +35,8 @@ public:
 
     // This function prints the factorial of 'n' in exponential notation
     void printFactorialExp();
-
+    
+    void getExponentialForm(double &x, int &y);
     // This function returns the factorial of 'n' as an unsigned int
     unsigned long long getFactorial();
 };
