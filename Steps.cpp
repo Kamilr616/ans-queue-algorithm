@@ -1,23 +1,8 @@
 #include "Steps.hpp"
 
-
-/*
-    Input:
-        lambda - intensywność strumienia zgłoszeń,
-        mi - średnia intensywność obłsugi,
-        m - liczba kanałów obsługi,
-        N - maksymalna liczba zgłoszeń.
-
-    Calculates:
-        Values describing queue system of type M/M/m/FIFO/m+N
-*/
-Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
-{
-    this->lambda = _lambda;
-    this->mikro = _mikro;
-    
-    this->m = (double)_m;
-    this->N = (double)_N;
+Steps::Steps(const double _lambda, const double _mikro, unsigned int _m, unsigned int _N):
+    lambda(_lambda), mikro(_mikro), m((double)_m), N((double)_N)
+{    
     this->ro = (_lambda / _mikro);
 
     this->p0 = 0;
@@ -35,14 +20,10 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
 
 void Steps::calculateAll()
 {
-    // 1. Warunek normalizujący trzeba sprawdzać?
-
     mFactorialValue = Factorial(m).getFactorial();
 
     calculateP0();
-
     this->pOdm = probabilityAtIndex(this->m + this->N);
-
     this->p1 = probabilityAtIndex(1);
     this->m0Mean = (this->ro * (1 - this->pOdm));
     this->mZnMean = (this->m - this->m0Mean);
@@ -53,127 +34,73 @@ void Steps::calculateAll()
     this->ts = (this->tf + (this->ro / this->mikro) * (1 - this->pOdm));
 }
 
-/*
-    Calculates p0 according to ro / m.
-*/
 void Steps::calculateP0()
 {
     double sum = 0;
     double roDivM = (this->ro / this->m);
 
-    if (roDivM == 1) {
-        for (int k = 0; k <= this->m - 1; k++) {
+    if (roDivM == 1)
+    {
+        for (int k = 0; k <= this->m - 1; k++)
+        {
             sum += pow(this->ro, k) / Factorial(k).getFactorial();
         }
         this->p0 = 1 / (sum + (pow(this->ro, this->m) / this->mFactorialValue) * (this->N + 1.0));
     }
-    else {
-        for (int k = 0; k <= this->m - 1; k++) {
+    else
+    {
+        for (int k = 0; k <= this->m - 1; k++)
+        {
             sum += pow(this->ro, k) / Factorial(k).getFactorial();
         }
         this->p0 = 1 / (sum + (pow(this->ro, this->m) / this->mFactorialValue) * ((1 - (pow(roDivM, this->N + 1.0))) / (1 - roDivM)));
     }
 }
 
-/*
-    It's a function of p0 so it must be calculated earlier!
-    Calculates v_mean whether 'ro == m' or 'ro != m'.
-*/
-void Steps::calculateVMean() {
-    if (this->ro == this->m) {
+void Steps::calculateVMean()
+{
+    if (this->ro == this->m)
+    {
         this->vMean = (pow(this->m, this->m) / this->mFactorialValue) * (this->N * (this->N + 1.0) * this->p0 / 2);
     }
-    else {
+    else
+    {
         this->vMean = (pow(this->ro, this->m + 1) * this->p0 / Factorial(this->m - 1).getFactorial())
             * (1 -std::pow(this->ro/this->m, this->N) * (N * (1 - this->ro / this->m) + 1)) / std::pow(this->m - this->ro, 2);
     }
 }
 
-/*
-    Input
-     index at which to calculate probability. It's a function of p0 so it must be calculated earlier!
-
-    Returns
-     double value of probability.
-*/
 double Steps::probabilityAtIndex(int index)
 {
-    if (1 <= index && index <= this->m - 1) { // dla k
+    if (1 <= index && index <= this->m - 1)
+    {
         return (pow(this->ro, index) / Factorial(index).getFactorial()) * this->p0;
     }
-    else if (this->m <= index && index <= (this->m + this->N)) { // dla j
+    else if (this->m <= index && index <= (this->m + this->N))
+    {
         return (pow(this->ro, index) / (pow(this->m, index - this->m) * this->mFactorialValue)) * this->p0;
     }
-    else {
+    else
+    {
         throw invalid_argument("Given index: " + to_string(index) + " is out of range.");
     }
 }
 
-double Steps::getRo() {
-    return ro;
-}
-
-double Steps::getP0() {
-    return p0;
-}
-
-double Steps::getP1() {
-    return p1;
-}
-
-double Steps::getPOdm() {
-    return pOdm;
-}
-
-double Steps::getM0Mean()
-{
-    return m0Mean;
-}
-
-double Steps::getMZnMean()
-{
-    return mZnMean;
-}
-
-double Steps::getVMean()
-{
-    return vMean;
-}
-
-double Steps::getNMean()
-{
-    return nMean;
-}
-
-double Steps::getTf()
-{
-    return tf;
-}
-
-double Steps::getTs()
-{
-    return ts;
-}
-
-/*
-    Input:
-     Range [from, to] to calculate probabilites.
-    
-    Out:
-     String of listed probabilities separeted by comma.
-*/
 string Steps::probabilitesAtRange(const unsigned int from, const unsigned int to)
 {
     string result = "";
-    for (unsigned int i = from; i <= to; i++) {
-        try {
+    for (unsigned int i = from; i <= to; i++)
+    {
+        try
+        {
             result += to_string(i) + ": " + to_string(probabilityAtIndex(i)) + ", ";
         }
-        catch (const invalid_argument &ex) {
+        catch (const invalid_argument &ex)
+        {
             return ex.what();
         }
     }
-    result[result.length() - 2] = ' '; // clear last comma
+    result[result.length() - 2] = ' ';
     return result;
 }
 
@@ -194,37 +121,37 @@ string Steps::printP1()
 
 string Steps::printP0dm()
 {
-    return to_string(pOdm);
+    return to_string(this->pOdm);
 }
 
 string Steps::printM0sr()
 {
-    return to_string(m0Mean);
+    return to_string(this->m0Mean);
 }
 
 string Steps::printMznsr()
 {
-    return to_string(mZnMean);
+    return to_string(this->mZnMean);
 }
 
 string Steps::printVsr()
 {
-    return to_string(vMean);
+    return to_string(this->vMean);
 }
 
 string Steps::printNsr()
 {
-    return to_string(nMean);
+    return to_string(this->nMean);
 }
 
 string Steps::printTf()
 {
-    return to_string(tf);
+    return to_string(this->tf);
 }
 
 string Steps::printTs()
 {
-    return to_string(ts);
+    return to_string(this->ts);
 }
 
 Steps::~Steps() {}

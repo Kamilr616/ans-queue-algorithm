@@ -37,8 +37,6 @@ void MainWindow::on_calc_clicked()
     ui->output_10->setText(QString::fromStdString(Analize.printTs()));
 }
 
-
-
 void MainWindow::on_inputM_valueChanged(int arg1)
 {
     m = ui->inputM->value();
@@ -48,7 +46,6 @@ void MainWindow::on_inputM_valueChanged(int arg1)
 
     ui->inputTo->setMaximum(max);
 }
-
 
 void MainWindow::on_inputN_valueChanged(int arg1)
 {
@@ -60,4 +57,3 @@ void MainWindow::on_inputN_valueChanged(int arg1)
     ui->inputFrom->setMaximum(max);
     ui->inputTo->setMaximum(max);
 }
-

@@ -1,22 +1,18 @@
 #ifndef STEPS_HPP
 #define STEPS_HPP
 
-#include <cmath>
 #include "global.hpp"
 #include "Factorial.hpp"
-#include "ExponentialNotation.hpp"
 
 using namespace std;
-
-typedef ExponentialNotation ExpNot;
 
 class Steps
 {
 private:
 
+    const double lambda, mikro, m, N;
+    double ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts;
     unsigned long long mFactorialValue;
-
-    double lambda, mikro, ro, p0, p1, pOdm, m0Mean, mZnMean, vMean, nMean, tf, ts, m, N;
 
     void calculateAll();
     void calculateP0();
@@ -25,19 +21,8 @@ private:
 
 public:
 
-    Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N);
+    Steps(const double _lambda, const double _mikro, const unsigned int _m, const unsigned int _N);
     ~Steps();
-
-    double getRo();
-    double getP0();
-    double getP1();
-    double getPOdm();
-    double getM0Mean();
-    double getMZnMean();
-    double getVMean();
-    double getNMean();
-    double getTf();
-    double getTs();
 
     string probabilitesAtRange(const unsigned int from, const unsigned int to);
 
@@ -53,4 +38,5 @@ public:
     string printTs();
 
 };
+
 #endif // STEPS_HPP

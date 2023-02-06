@@ -3,5 +3,4 @@
 #include <array>
 #include <string>
 
-#define MAX_F 2000 // Maximum number of digits in output
-#define E 2.71828182845904523536;
+#define MAX_F 1000
