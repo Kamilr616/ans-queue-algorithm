@@ -25,6 +25,10 @@ public:
 private slots:
     void on_calc_clicked();
 
+    void on_inputM_valueChanged(int arg1);
+
+    void on_inputN_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 };

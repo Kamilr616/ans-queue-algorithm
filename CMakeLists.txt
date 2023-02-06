@@ -24,6 +24,8 @@ set(PROJECT_SOURCES
 	Steps.cpp
 	Steps.hpp
 	global.hpp
+	ExponentialNotation.cpp
+	ExponentialNotation.hpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
