@@ -1,6 +1,6 @@
 #include "Steps.hpp"
 
-Steps::Steps(const double _lambda, const double _mikro, unsigned int _m, unsigned int _N):
+Steps::Steps(const double _lambda, const double _mikro, const unsigned int _m, const unsigned int _N):
     lambda(_lambda), mikro(_mikro), m((double)_m), N((double)_N)
 {    
     this->ro = (_lambda / _mikro);
