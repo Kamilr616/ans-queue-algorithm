@@ -15,9 +15,8 @@ Steps::Steps(double _lambda, double _mikro, unsigned int _m, unsigned int _N)
     this->lambda = _lambda;
     this->mikro = _mikro;
     
-    //TODO rzutowanie m i N na double
-    this->m = _m;
-    this->N = _N;
+    this->m = (double)_m;
+    this->N = (double)_N;
     this->ro = (_lambda / _mikro);
 
     this->p0 = 0;
